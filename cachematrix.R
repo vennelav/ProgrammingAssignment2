@@ -1,15 +1,40 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Here are two functions used to cache a matrix and also its inverse. This can
+## significantly improve performance for large matrices.
 
-## Write a short comment describing this function
+## This function is used to cache the matrix and its inverse 
 
 makeCacheMatrix <- function(x = matrix()) {
+        
+ ## y and z are global variables and hence their values are in cache  
+        
+        y <<- x
+ ## solve function is used to find the inverse of the matrix 
+        
+        z <<- solve(x) 
+        
+        
+}
+
+
+## This function retrieves the inverse of a matrix from cache, if the matrix 
+## supplied is identical to the matrix in cache
+
+cacheSolve <- function(x) {
+            
+        
+        if (is.matrix(x) && is.matrix(y) && dim(x) == dim(y) && all(x == y)) 
+            
+               { print("This is the cached inverse")
+                z
+        }
+        
+        
+        else {
+                z <- solve(x)
+              print("This is the calculated inverse")
+              print(z)
+        }
 
 }
 
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
